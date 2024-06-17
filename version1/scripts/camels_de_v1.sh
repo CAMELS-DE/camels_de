@@ -35,6 +35,9 @@ papermill /scripts/07_topographic_attributes.ipynb /output_data/scripts/07_topog
 echo "[$(date +%T)] Compiling hydrologic attributes .csv file..."
 papermill /scripts/08_hydrologic_attributes.ipynb /output_data/scripts/08_hydrologic_attributes.ipynb --no-progress-bar
 
+echo "[$(date +%T)] Compiling simulated timeseries data..."
+papermill /scripts/10_simulated_data.ipynb /output_data/scripts/10_simulated_data.ipynb --no-progress-bar
+
 echo "[$(date +%T)] Compiling catchment boundary .shp and .gpkg files..."
 papermill /scripts/09_catchment_boundaries.ipynb /output_data/scripts/09_catchment_boundaries.ipynb --no-progress-bar
 
