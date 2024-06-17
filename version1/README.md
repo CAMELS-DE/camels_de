@@ -33,7 +33,8 @@ In the end, the dataset organisation is as follows:
 ┣ 📜 CAMELS_DE_hydrologic_attributes.csv
 ┣ 📜 CAMELS_DE_landcover_attributes.csv
 ┣ 📜 CAMELS_DE_soil_attributes.csv
-┗ 📜 CAMELS_DE_topographic_attributes.csv
+┣ 📜 CAMELS_DE_topographic_attributes.csv
+┗ 📜 CAMELS_DE_simulation_benchmark.csv
 ```
 
 ## Container
@@ -49,5 +50,5 @@ docker build -t camels_de_v1 .
 To run the container, the local `output_data` and `camelsp/output_data` directories have to be mounted inside the container:
 
 ```bash
-docker run -v ./output_data:/output_data-v /path/to/local/camelsp/output_data:/camelsp/output_data -it --rm camels_de_v1
+docker run -v ./output_data:/output_data -v /path/to/local/camelsp:/camelsp -it --rm camels_de_v1
 ```
