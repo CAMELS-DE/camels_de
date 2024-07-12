@@ -20,6 +20,11 @@ In the end, the dataset organisation is as follows:
 ┃ ┣ 📜 CAMELS_DE_hydromet_timeseries_DE110010.csv
 ┃ ┣ 📜 CAMLES_DE_hydromet_timeseries_DE110020.csv
 ┃ ┗ 📜 ...
+┣ 📂 timeseries_simulated
+┃ ┣ 📜 CAMELS_DE_discharge_sim_DE110000.csv
+┃ ┣ 📜 CAMELS_DE_discharge_sim_DE110010.csv
+┃ ┣ 📜 CAMLES_DE_discharge_sim_DE110020.csv
+┃ ┗ 📜 ...
 ┣ 📂 CAMELS_DE_catchment_boundaries
 ┃ ┣ 📂 catchments
 ┃ ┃ ┣ 🗺️ CAMELS_DE_catchments.shp
