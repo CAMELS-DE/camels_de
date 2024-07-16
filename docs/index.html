@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAMELS-DE Processing Pipeline</title>
     <style>
-        /* Import a modern font */
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
         body {
@@ -13,51 +12,113 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            justify-content: flex-start;
             margin: 0;
             padding: 0;
             min-height: 100vh;
             background-color: #f4f4f9;
+            line-height: 150%;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 1000px; /* Match the iframe's width */
+            text-align: left;
+            padding: 0 20px;
         }
 
         h1 {
-            background-color: #bbdfee; /* Light blue background */
+            background-color: #bbdfee;
             color: black;
+            border: black 2px solid;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
             width: 100%;
-            max-width: 1600px; /* Increased width */
-            text-align: center; /* Center the title */
+            text-align: center;
         }
 
         p, h2 {
-            max-width: 1600px; /* Increased width */
-            margin: 10px 20px;
+            margin: 10px 0;
+        }
+
+        .iframe-container {
+            width: 100%;
+            max-width: 1400px; /* Match the iframe's width */
+            margin: 20px 0;
         }
 
         iframe {
             width: 100%;
-            height: 800px;
+            height: 530px;
             border: none;
-            max-width: 1600px; /* Increased width */
-            margin: 20px 0;
-            display: block; /* Center the iframe */
-            margin-left: auto; /* Center the iframe */
-            margin-right: auto; /* Center the iframe */
+        }
+
+        .introduction {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .introduction img {
+            margin-left: 20px;
+            max-width: 40%;
+            height: auto;
+        }
+
+        .introduction p {
+            flex: 1;
         }
     </style>
 </head>
 <body>
-    <h1>CAMELS-DE Processing Pipeline</h1>
-    <p>This webpage describes the processing pipeline of the CAMELS-DE dataset with its input data, processing containers, and output data.</p>
+    <div class="content-container">
+        <h1>CAMELS-DE Processing Pipeline</h1>        
+        <h2>CAMELS-DE</h2>
+        <div class="introduction">
+            <p>
+                CAMELS-DE (<b>C</b>atchment <b>A</b>ttributes and <b>Me</b>teorology for <b>L</b>arge-sample <b>S</b>tudies) is a hydro-meteorological dataset which offers data for 1582 catchments in Germany.<br>
+                The time series data of hydro-meteorological variables is in daily resolution and spans up to 70 years, from January 1951 to December 2020. Additionally, the dataset includes a set of derived catchment attributes,
+                such as soil properties, land cover, and topographic data as well as time series data of simulated discharge from a regional Long-Short Term Memory (LSTM) network and a conceptual hydrological model.
+                The catchment boundaries are also provided in the dataset, which allows for the derivation of further catchment attributes. <br><br><br><br><br>
 
-    <h2>Description</h2>
-    <p>Describe CAMELS-DE briefly.<br>
-    Describe the processing pipeline of CAMELS-DE.</p>
+                <span style="background-color: #bbdfee; border: 3px solid black; box-shadow: 6px 10px black; font-weight: bold; font-size: 120%; padding: 1%;">
+                    <b>Download CAMELS-DE from here:</b> 
+                    <a href="https://zenodo.org" target="_blank">https://zenodo.org</a> <!-- TODO: put Zenodo DOI here -->
+                </span><br>
+            </p>
+            <img src="assets/germany_stations.png" alt="Germany Stations">
+        </div>
+        <h2>Processing Pipeline</h2>
+        <p>
+            <h3>Description</h3>
+            The processing pipeline of CAMELS-DE is built in a modular way where each component is implemented in a seperate GitHub repository that builds its own Docker container. 
+            Each repository includes detailed documentation, guidelines for building and running the Docker containers, and instructions for accessing the required input data.<br>
+            We want to make the origin as well as used methodologies / packages / functions of each data component of CAMELS-DE as traceable, comprehensable and reproducable as possible. 
+            We think that this is best achieved through the modular containerized design instead of one monolithic code repository to generate CAMELS-DE. 
+            Additionally, this design allows for eases possible future updates of individual components and the integration of new data sources.
+            
+            <h3>Pipeline Components</h3>
+            The figure below visualizes the processing pipeline of CAMELS-DE, the processing containers are clickable, the links will take you to the respective GitHub repositories and the final CAMELS-DE tile brings you to the published CAMELS-DE data set:
+        </p>
+    </div>
+    <div class="iframe-container">
+        <iframe src="assets/camels_reproducibility-Website.drawio.html" frameborder="0"></iframe>
+    </div>
+    <div class="content-container">
+        <p>
+            <ol>
+                <li><a href="https://github.com/CAMELS-DE/camelsp" target="_blank">camelsp</a>: Processing and harmonization of raw discharge data and water level data from the federal agencies (<i>Note that we currently cannot share the raw data from the federal agencies</i>).</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_catchments" target="_blank">camels_catchments</a>: Derivation of catchment boundaries for each gauging station in CAMELS-DE by its latitude and longitude.</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_meteo" target="_blank">camels_meteo</a>: Derivation of meteorological time series data from the HYRAS data set from the German Weather Service (DWD).</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_soils" target="_blank">camels_soils</a>: Derivation of soil properties for each catchment in CAMELS-DE from the SoilGrids data set.</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_hydrogeo" target="_blank">camels_hydrogeo</a>: Derivation of hydrogeological properties for each catchment in CAMELS-DE from the HÜK250 from the Federal Institute for Geosciences and Natural Resources (BGR)</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_landcover" target="_blank">camels_landcover</a>: Derivation of land cover data for each catchment in CAMELS-DE from the CORINE Land Cover data set.</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_dem" target="_blank">camels_dem</a>: Derivation of digital elevation model (DEM) data for each catchment in CAMELS-DE from the EU DEM GLO-30 from Copernicus.</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_humans" target="_blank">camels_human_influence</a>: Derivation of human influence data for each catchment in CAMELS-DE from the Inventory of Dams in Germany (Speckhann et al 2021).</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_de" target="_blank">camels_de</a>: Integration of all derived data sets into the final CAMELS-DE data set.</li>
+            </ol>
+        </p>
 
-    <h2>Processing Pipeline</h2>
-    <iframe src="assets/camels_reproducibility-Website.drawio.html" frameborder="0"></iframe>
+    </div>
 </body>
 </html>
