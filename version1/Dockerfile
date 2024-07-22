@@ -24,10 +24,8 @@ RUN pip install -e /camelsp
 RUN apt-get update && apt-get install -y zip
 
 # Copy scripts to container
-COPY scripts /scripts
-
-# Change working directory
+COPY ./scripts /scripts
 WORKDIR /scripts
 
-# Run sh script to process ISRIC
+# Run sh script to process camels_de_v1
 CMD ["/bin/bash", "camels_de_v1.sh"]
