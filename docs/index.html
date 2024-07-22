@@ -76,17 +76,17 @@
         <h2>CAMELS-DE</h2>
         <div class="introduction">
             <p>
-                CAMELS-DE (<b>C</b>atchment <b>A</b>ttributes and <b>Me</b>teorology for <b>L</b>arge-sample <b>S</b>tudies) is a hydro-meteorological dataset which offers data for 1582 catchments in Germany.<br>
+                CAMELS-DE (<b>C</b>atchment <b>A</b>ttributes and <b>Me</b>teorology for <b>L</b>arge-sample <b>S</b>tudies) is a hydro-meteorological dataset which offers data for 1555 catchments in Germany.<br>
                 The time series data of hydro-meteorological variables is in daily resolution and spans up to 70 years, from January 1951 to December 2020. Additionally, the dataset includes a set of derived catchment attributes,
                 such as soil properties, land cover, and topographic data as well as time series data of simulated discharge from a regional Long-Short Term Memory (LSTM) network and a conceptual hydrological model.
                 The catchment boundaries are also provided in the dataset, which allows for the derivation of further catchment attributes. <br><br><br><br><br>
 
-                <span style="background-color: #bbdfee; border: 3px solid black; box-shadow: 6px 10px black; font-weight: bold; font-size: 120%; padding: 1%;">
-                    <b>Download CAMELS-DE from here:</b> 
-                    <a href="https://zenodo.org" target="_blank">https://zenodo.org</a> <!-- TODO: put Zenodo DOI here -->
+                <span style="background-color: #bbdfee; border: 3px solid black; box-shadow: 6px 10px black; font-weight: bold; font-size: 110%; padding: 1%;">
+                    <b>Download CAMELS-DE:</b> 
+                    <a href="https://doi.org/10.5281/zenodo.12760336" target="_blank">https://doi.org/10.5281/zenodo.12760336</a>
                 </span><br>
             </p>
-            <img src="assets/germany_stations.png" alt="Germany Stations">
+            <img src="assets/germany_stations.png" alt="Map of all 1555 gauging stations">
         </div>
         <h2>Processing Pipeline</h2>
         <p>
@@ -98,7 +98,9 @@
             Additionally, this design allows for eases possible future updates of individual components and the integration of new data sources.
             
             <h3>Pipeline Components</h3>
-            The figure below visualizes the processing pipeline of CAMELS-DE, the processing containers are clickable, the links will take you to the respective GitHub repositories and the final CAMELS-DE tile brings you to the published CAMELS-DE data set:
+            The figure below visualises the CAMELS-DE processing pipeline, the processing containers are clickable, with links leading to the respective GitHub repositories. 
+            All repositories are released as version 1, which ensures that the code used for the generation of CAMELS-DE can be referred to in a stable manner.
+            The final CAMELS-DE tile brings you to the published CAMELS-DE data set:
         </p>
     </div>
     <div class="iframe-container">
@@ -107,15 +109,15 @@
     <div class="content-container">
         <p>
             <ol>
-                <li><a href="https://github.com/CAMELS-DE/camelsp" target="_blank">camelsp</a>: Processing and harmonization of raw discharge data and water level data from the federal agencies (<i>Note that we currently cannot share the raw data from the federal agencies</i>).</li>
-                <li><a href="https://github.com/CAMELS-DE/camels_catchments" target="_blank">camels_catchments</a>: Derivation of catchment boundaries for each gauging station in CAMELS-DE by its latitude and longitude.</li>
-                <li><a href="https://github.com/CAMELS-DE/camels_meteo" target="_blank">camels_meteo</a>: Derivation of meteorological time series data from the HYRAS data set from the German Weather Service (DWD).</li>
-                <li><a href="https://github.com/CAMELS-DE/camels_soils" target="_blank">camels_soils</a>: Derivation of soil properties for each catchment in CAMELS-DE from the SoilGrids data set.</li>
-                <li><a href="https://github.com/CAMELS-DE/camels_hydrogeo" target="_blank">camels_hydrogeo</a>: Derivation of hydrogeological properties for each catchment in CAMELS-DE from the HÜK250 from the Federal Institute for Geosciences and Natural Resources (BGR)</li>
-                <li><a href="https://github.com/CAMELS-DE/camels_landcover" target="_blank">camels_landcover</a>: Derivation of land cover data for each catchment in CAMELS-DE from the CORINE Land Cover data set.</li>
-                <li><a href="https://github.com/CAMELS-DE/camels_dem" target="_blank">camels_dem</a>: Derivation of digital elevation model (DEM) data for each catchment in CAMELS-DE from the EU DEM GLO-30 from Copernicus.</li>
-                <li><a href="https://github.com/CAMELS-DE/camels_humans" target="_blank">camels_human_influence</a>: Derivation of human influence data for each catchment in CAMELS-DE from the Inventory of Dams in Germany (Speckhann et al 2021).</li>
-                <li><a href="https://github.com/CAMELS-DE/camels_de" target="_blank">camels_de</a>: Integration of all derived data sets into the final CAMELS-DE data set and calculation of hydrologic and climatic attributes.</li>
+                <li><a href="https://github.com/CAMELS-DE/camelsp/tree/v1.0.0" target="_blank">camelsp</a>: Processing and harmonization of raw discharge data and water level data from the federal agencies (<i>Note that we currently cannot share the raw data from the federal agencies</i>).</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_catchments/tree/v1.0.0/merit_hydro" target="_blank">camels_catchments</a>: Derivation of catchment boundaries for each gauging station in CAMELS-DE by its latitude and longitude.</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_meteo/tree/v1.0.0/hyras" target="_blank">camels_meteo</a>: Derivation of meteorological time series data from the HYRAS data set from the German Weather Service (DWD).</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_soils/tree/v1.0.0/isric" target="_blank">camels_soils</a>: Derivation of soil properties for each catchment in CAMELS-DE from the SoilGrids data set.</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_hydrogeo/tree/v1.0.0/huek250" target="_blank">camels_hydrogeo</a>: Derivation of hydrogeological properties for each catchment in CAMELS-DE from the HÜK250 from the Federal Institute for Geosciences and Natural Resources (BGR)</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_landcover/tree/v1.0.0/corine" target="_blank">camels_landcover</a>: Derivation of land cover data for each catchment in CAMELS-DE from the CORINE Land Cover data set.</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_dem/tree/v1.0.0/copernicus_dem30" target="_blank">camels_dem</a>: Derivation of digital elevation model (DEM) data for each catchment in CAMELS-DE from the EU DEM GLO-30 from Copernicus.</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_humans/tree/v1.0.0/dams" target="_blank">camels_human_influence</a>: Derivation of human influence data for each catchment in CAMELS-DE from the Inventory of Dams in Germany (Speckhann et al 2021).</li>
+                <li><a href="https://github.com/CAMELS-DE/camels_de/tree/v1.0.0/version1" target="_blank">camels_de</a>: Integration of all derived data sets into the final CAMELS-DE data set and calculation of hydrologic and climatic attributes.</li>
             </ol>
         </p>
 
