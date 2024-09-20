@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # Install dependencies for camelsp with fixed versions
-RUN pip install geopandas==0.14.3
+RUN pip install geopandas==0.14.4
 RUN pip install "pandas<2.2.0"
 RUN pip install numpy==1.25.2
 RUN pip install matplotlib==3.8.3
