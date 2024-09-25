@@ -31,7 +31,12 @@ In the end, the dataset organisation is as follows:
 ┃ ┃ ┗ 🗺️ CAMELS_DE_catchments.gpkg
 ┃ ┣ 📂 gauging_stations
 ┃ ┃ ┣ 🗺️ CAMELS_DE_gauging_stations.shp
-┃ ┃ ┗ 🗺️ CAMELS_DE_gauging_stations.gpkg
+┃ ┗ ┗ 🗺️ CAMELS_DE_gauging_stations.gpkg
+┣ 📂 model_parameters
+┃ ┣ 📂 HBV
+┃ ┃ ┗ 📜 CAMELS_DE_parameters_hbv.csv
+┃ ┃ 📂 LSTM
+┃ ┗ ┗ 📦 CAMELS_DE_epochs_training_lstm.zip
 ┣ 📜 CAMELS_DE_climatic_attributes.csv
 ┣ 📜 CAMELS_DE_humaninfluence_attributes.csv
 ┣ 📜 CAMELS_DE_hydrogeology_attributes.csv
